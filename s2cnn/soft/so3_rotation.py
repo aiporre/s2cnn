@@ -57,7 +57,7 @@ def __setup_so3_rotation(b, alpha, beta, gamma):
           for l in range(b)]
     # Us[l][m, n] = exp(i m alpha) d^l_mn(beta) exp(i n gamma)
 
-    Us = [Us[l].astype(np.complex64).view(np.float32).reshape((2 * l + 1, 2 * l + 1, 2)) for l in range(b)]
+    Us = [Us[l].astype(np.complex64).view("float32").reshape((2 * l + 1, 2 * l + 1, 2)) for l in range(b)]
 
     return Us
 

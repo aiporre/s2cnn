@@ -33,6 +33,7 @@ def __setup_s2_ft(b, grid):
 
     # Sample the Wigner-D functions on the local grid
     n_spatial = len(grid)
+    print('===> b:', b)
     n_spectral = np.sum([(2 * l + 1) for l in range(b)])
     F = np.zeros((n_spatial, n_spectral), dtype=complex)
     for i, (beta, alpha) in enumerate(grid):
@@ -55,6 +56,6 @@ def _setup_s2_ft(b, grid, device_type, device_index):
     F = __setup_s2_ft(b, grid)
 
     # convert to torch Tensor
-    F = torch.tensor(F.astype(np.float32), dtype=torch.float32, device=torch.device(device_type, device_index))  # pylint: disable=E1102
+    F = torch.tensor(F.astype("float32"), dtype=torch.float32, device=torch.device(device_type, device_index))  # pylint: disable=E1102
 
     return F

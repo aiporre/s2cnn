@@ -57,6 +57,6 @@ def _setup_so3_ft(b, grid, device_type, device_index):
     F = __setup_so3_ft(b, grid)
 
     # convert to torch Tensor
-    F = torch.tensor(F.astype(np.float32), dtype=torch.float32, device=torch.device(device_type, device_index))  # pylint: disable=E1102
+    F = torch.tensor(F.astype("float32"), dtype=torch.float32, device=torch.device(device_type, device_index))  # pylint: disable=E1102
 
     return F
